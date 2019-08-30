@@ -1,0 +1,20 @@
+{
+  "Name": "HourlyChime",
+  "UniqueId": "43587909-18f2-4be7-bf67-99a1a155de1b",
+  "Description": "Ians hourly chime skill!",
+  "StartupRules": [
+    "Startup",
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "debug",
+  "TimeoutInSeconds": 600000,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
