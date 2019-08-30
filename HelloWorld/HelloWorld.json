@@ -1,0 +1,19 @@
+{
+  "Name": "HelloWorld",
+  "UniqueId": "43587909-18f2-4be7-bf67-99a1a155de2c",
+  "Description": "My skill is amazing!",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "verbose",
+  "TimeoutInSeconds": 6000,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
