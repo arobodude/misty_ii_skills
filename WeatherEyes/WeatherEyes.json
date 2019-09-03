@@ -1,0 +1,20 @@
+{
+  "Name": "WeatherEyes",
+  "UniqueId": "43587102-18f2-4be7-bf67-90a1a155de1b",
+  "Description": "Misty's Eyes Display the Current Weather",
+  "StartupRules": [
+    "Startup",
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "debug",
+  "TimeoutInSeconds": 31540000,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
