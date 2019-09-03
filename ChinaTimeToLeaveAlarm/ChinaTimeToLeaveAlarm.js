@@ -1,27 +1,41 @@
-// Ians Hourly Chime Skill
-// August 27, 2019
+// China Time to Leave Alarm Skill
+// Developer: Ian Bernstein
+// Created: August 28th, 2019
+// Updated: September 2nd, 2019
+// 
+// To set the correct time zone on your robot first use the Misty Companion app to get the IP of your robot.
+// In your internet browser with you computer on the same wifi network go to http://ip_of_robot:8080
+// Eg. http://192.168.100.135:8080
+// Enter username: 'administrator' and the password printed on the label on the bottom of your robot.
+// Go to "Device Settings" on the menu in the upper left. Then scroll down and set you "Time zone"
 
-misty.Debug("Hourly Chime Skill Running");
 
+// Display the skill name and current time as the skill is starting in your browsers console
+misty.Debug("China Time to Leave Alarm Skill Running");
 var today = new Date();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-misty.Debug(time);
-
+misty.Debug(today.toString());
 
 while(1) {
+    // Get the current date/time
     var today = new Date();
-    var timeseconds = today.getSeconds();
+
     var timeminutes = today.getMinutes();
     var timehours = today.getHours();
-    
-    misty.Debug(timeminutes);
 
-    if(timeminutes == 0) {
-        misty.Debug(timehours);
-        for (i = 0; i < (timehours + 3); i++) {
-            misty.PlayAudio("bells.wav", 100);
-            misty.Pause(6000);
-        }
+    // Show a debug message with the current time in hour:minute format
+    misty.Debug(timehours + ":" + timeminutes);
+
+    // Plays the alarm at 17:55 (5:55pm) daily
+    if((timehours == 17) && (timeminutes == 55)) {
+        misty.PlayAudio("its_almost_time.wav", 100);
+        misty.Pause(2000);
+        misty.PlayAudio("car_horn.wav", 100);
+        misty.Pause(1400);
+        misty.PlayAudio("car_horn.wav", 100);
+        misty.Pause(1400);
+        misty.PlayAudio("car_horn.wav", 100);
+        misty.Pause(1400);
+        misty.PlayAudio("car_horn.wav", 100);
         misty.Pause(60000);
     }
     misty.Pause(1000);

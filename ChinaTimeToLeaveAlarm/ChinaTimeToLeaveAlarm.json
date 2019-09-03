@@ -1,7 +1,7 @@
 {
-  "Name": "HourlyChime",
-  "UniqueId": "43587909-18f2-4be7-bf67-99a1a155de1b",
-  "Description": "Ians hourly chime skill!",
+  "Name": "ChinaTimeToLeaveAlarm",
+  "UniqueId": "43587909-18f2-4be7-bf34-99a1a155de1b",
+  "Description": "Time to leave the factory at 6:00pm. Alarm goes off at 5:55pm.",
   "StartupRules": [
     "Startup",
     "Manual",
@@ -9,7 +9,7 @@
   ],
   "Language": "javascript",
   "BroadcastMode": "debug",
-  "TimeoutInSeconds": 600000,
+  "TimeoutInSeconds": 31540000,
   "CleanupOnCancel": false,
   "WriteToLog": false,
   "Parameters": {
