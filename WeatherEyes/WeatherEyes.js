@@ -1,33 +1,98 @@
 // Ian's Weather Eyes Skill
 // Created: August 27th, 2019
-// Updated: September 2nd, 2019
+// Updated: September 12th, 2019
 // 
-// Tapping Misty's front bumpers displays the current weather on her eyes
-
-//http://api.openweathermap.org/data/2.5/weather?q=Boulder&APPID=130043fb9b9b18097d439d12b5bb680f
-
+// Tapping any of Misty's bumpers displays the current weather in icon form on her eyes
+//
+// Replace my weather API key with your own free current weather key from http://www.openweathermap.org
+// API docs at: https://openweathermap.org/current
 
 
 function _SendExternalRequest(data) {
     _data = JSON.parse(data.Result.ResponseObject.Data);
-    _condition = _data.weather[0].main;
-    misty.Debug("Misty here! Just letting you know it's sunny in " + _condition);
 
-    if(_condition == "Clear") {
-        misty.DisplayImage("sunny.png", 1);
-        misty.Pause(15000);
-        misty.DisplayImage("e_DefaultContent.jpg", 1);
-    }
+    _condition = _data.weather[0].description;
+    _city = _data.name;
+    _icon = _data.weather[0].icon;
+
+    misty.Debug("Just letting you know it's " + _condition.toLowerCase() + " in " + _city + "!");
+
+    switch(_icon) {
+        case "01d": // Clear Sky
+            misty.DisplayImage("sunny.png", 1);
+            break;
+        case "01n":
+            misty.DisplayImage("moon.png", 1);
+            break;
+        case "02d": // Few Clouds
+            misty.DisplayImage("cloudy_sun.png", 1);
+            break;
+        case "02n": 
+            misty.DisplayImage("cloudy_moon.png", 1);
+            break;
+        case "03d": // Scattered Clouds
+            misty.DisplayImage("cloudy.png", 1);
+            break;
+        case "03n": 
+            misty.DisplayImage("cloudy.png", 1);
+            break;
+        case "04d": // Broken Clouds
+            misty.DisplayImage("cloudy.png", 1);
+            break;
+        case "04n":
+            misty.DisplayImage("cloudy.png", 1);
+            break;
+        case "09d": // Shower Rain
+            misty.DisplayImage("rainy_sun.png", 1);
+            break;
+        case "09n":
+            misty.DisplayImage("rainy_moon.png", 1);
+            break;
+        case "10d": // Rain
+            misty.DisplayImage("rainy.png", 1);
+            break;
+        case "10n":
+            misty.DisplayImage("rainy.png", 1);
+            break;
+        case "11d": // Thunderstorm
+            misty.DisplayImage("rainy_lighting.png", 1);
+            break;
+        case "11n":
+            misty.DisplayImage("rainy_lighting.png", 1);
+            break;
+        case "13d": // Snow
+            misty.DisplayImage("snowing.png", 1);
+            break;
+        case "13n":
+            misty.DisplayImage("snowing.png", 1);
+            break;
+        case "50d": // Mist
+            misty.DisplayImage("mist.png", 1);
+            break;
+        case "50n":
+            misty.DisplayImage("mist.png", 1);
+            break;   
+        default:
+            misty.DisplayImage("e_DefaultContent.jpg", 1);
+        }
+    
+    misty.Pause(10000);
+    misty.DisplayImage("e_DefaultContent.jpg", 1);
 }
 
-function _checkWeather() {
-    misty.SendExternalRequest("GET","http://api.openweathermap.org/data/2.5/weather?q=Boulder&APPID=130043fb9b9b18097d439d12b5bb680f");
 
-    misty.RegisterTimerEvent("checkWeather", 10 * 60 * 1000, false);
+function _checkWeather(data) {
+    // Use your own zip code in the URL below
+    misty.SendExternalRequest("GET","http://api.openweathermap.org/data/2.5/weather?zip=80301,us&APPID=130043fb9b9b18097d439d12b5bb680f");
 }
 
-_checkWeather();
 
+misty.AddPropertyTest("BumpSensor", "isContacted", "==", true, "boolean");
+misty.AddReturnProperty("BumpSensor", "sensorName");
+misty.RegisterEvent("checkWeather", "BumpSensor", 200, true);
+
+
+// Format of the JSON response from open weather map
 /*{
     "coord":{"lon":-105.27,
              "lat":40.02},
@@ -50,38 +115,4 @@ _checkWeather();
     "id":5574991,
     "name":"Boulder",
     "cod":200
-}*/
-
-
-// Display the skill name and current time as the skill is starting in your browsers console
-/*misty.Debug("Hourly Chime Skill Running");
-var today = new Date();
-misty.Debug(today.toString());
-
-while(1) {
-    // Get the current date/time
-    var today = new Date();
-
-    var timeseconds = today.getSeconds();
-    var timeminutes = today.getMinutes();
-    var timehours = today.getHours();
-
-    // Switch from 24 hour time to 12 hour
-    if(timehours > 12) {
-        timehours = timehours - 12;
-    }
-
-    // Show a debug message with the current time in hour:minute format
-    misty.Debug(timehours + ":" + timeminutes);
-
-    // Every hour play bells.wav the number of times of the hour. Eg. 2pm plays twice. 12pm plays 12 times. 3am plays 3 times.
-    if(timeminutes == 0) {
-        misty.Debug(timehours);
-        for (i = 0; i < timehours; i++) {
-            misty.PlayAudio("bells.wav", 100);
-            misty.Pause(6000);
-        }
-        misty.Pause(60000);
-    }
-    misty.Pause(1000);
 }*/
