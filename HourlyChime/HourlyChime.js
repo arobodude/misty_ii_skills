@@ -1,6 +1,7 @@
 // Ian's Hourly Chime Skill
+// Developer: Ian Bernstein
 // Created: August 27th, 2019
-// Updated: September 2nd, 2019
+// Updated: September 12th, 2019
 // 
 // To set the correct time zone on your robot first use the Misty Companion app to get the IP of your robot.
 // In your internet browser with you computer on the same wifi network go to http://ip_of_robot:8080
