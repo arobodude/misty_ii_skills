@@ -15,7 +15,7 @@ misty.Debug("China Time to Leave Alarm Skill Running");
 var today = new Date();
 misty.Debug(today.toString());
 
-while(1) {
+function _checkTimeLoop() {
     // Get the current date/time
     var today = new Date();
 
@@ -38,5 +38,8 @@ while(1) {
         misty.PlayAudio("car_horn.wav", 100);
         misty.Pause(60000);
     }
-    misty.Pause(1000);
+    
+    misty.RegisterTimerEvent("checkTimeLoop", 1000, false);
 }
+
+_checkTimeLoop();
