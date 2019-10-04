@@ -3,7 +3,6 @@
   "UniqueId": "43587102-18f2-4be7-bf67-90a1a155de1b",
   "Description": "Misty's Eyes Display the Current Weather",
   "StartupRules": [
-    "Startup",
     "Manual",
     "Robot"
   ],

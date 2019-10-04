@@ -3,7 +3,6 @@
   "UniqueId": "43587909-18f2-4be7-bf34-99a1a155de1b",
   "Description": "Time to leave the factory at 6:00pm. Alarm goes off at 5:55pm.",
   "StartupRules": [
-    "Startup",
     "Manual",
     "Robot"
   ],
