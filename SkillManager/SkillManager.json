@@ -1,0 +1,20 @@
+{
+  "Name": "SkillManager",
+  "UniqueId": "5f08d285-1199-46dc-8a99-09a3f3df799e",
+  "Description": "Starts a wider set of skills when Misty powers on. This should be the only skill on your robot with the startup flag set.",
+  "StartupRules": [
+    "Manual",
+    "Robot",
+    "Startup"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "debug",
+  "TimeoutInSeconds": 36000,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}

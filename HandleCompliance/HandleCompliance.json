@@ -1,0 +1,19 @@
+{
+  "Name": "HandleCompliance",
+  "UniqueId": "2205303c-b520-40fd-886e-734f819fd9e6",
+  "Description": "Causes Mistys neck to go limp when you pick her up by her handle",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "debug",
+  "TimeoutInSeconds": 31540000,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}

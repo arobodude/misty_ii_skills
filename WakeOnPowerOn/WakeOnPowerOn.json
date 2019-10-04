@@ -1,0 +1,19 @@
+{
+  "Name": "WakeOnPowerOn",
+  "UniqueId": "491186e3-2171-4822-97b8-b561ab0864aa",
+  "Description": "Misty will look straight ahead after booting",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "debug",
+  "TimeoutInSeconds": 600,
+  "CleanupOnCancel": false,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
